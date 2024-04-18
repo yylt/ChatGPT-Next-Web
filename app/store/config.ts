@@ -34,7 +34,7 @@ export const DEFAULT_CONFIG = {
   theme: Theme.Auto as Theme,
   tightBorder: !!getClientConfig()?.isApp,
   sendPreviewBubble: true,
-  enableAutoGenerateTitle: true,
+  enableAutoGenerateTitle: false,
   sidebarWidth: DEFAULT_SIDEBAR_WIDTH,
 
   disablePromptHint: false,
@@ -52,7 +52,7 @@ export const DEFAULT_CONFIG = {
     max_tokens: 4000,
     presence_penalty: 0,
     frequency_penalty: 0,
-    sendMemory: true,
+    sendMemory: false,
     historyMessageCount: 4,
     compressMessageLengthThreshold: 1000,
     enableInjectSystemPrompts: true,
@@ -137,7 +137,7 @@ export const useAppConfig = createPersistStore(
       const state = persistedState as ChatConfig;
 
       if (version < 3.4) {
-        state.modelConfig.sendMemory = true;
+        state.modelConfig.sendMemory = false;
         state.modelConfig.historyMessageCount = 4;
         state.modelConfig.compressMessageLengthThreshold = 1000;
         state.modelConfig.frequency_penalty = 0;

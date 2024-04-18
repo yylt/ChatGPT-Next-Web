@@ -429,9 +429,7 @@ export const useChatStore = createPersistStore(
         const contextPrompts = session.mask.context.slice();
 
         // system prompts, to get close to OpenAI Web ChatGPT
-        const shouldInjectSystemPrompts =
-          modelConfig.enableInjectSystemPrompts &&
-          session.mask.modelConfig.model.startsWith("gpt-");
+        const shouldInjectSystemPrompts = false;
 
         var systemPrompts: ChatMessage[] = [];
         systemPrompts = shouldInjectSystemPrompts
